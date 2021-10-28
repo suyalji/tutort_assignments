@@ -4,21 +4,29 @@ element would be removed, while in the second step minimum element of the remain
 be removed, in the third step again the maximum and so on. Continue this till the array contains only 1
 element. And find the final element remaining in the array.
 """
-def debug(s):
-    print(f"debug : {s}")
-def sort(arr):
-    for i in range(len(arr)):
-        temp = arr[i]
-        debug(f"1 -> {temp}")
-        for j in range(i+1,len(arr)):
-            if arr[j] < temp:
-                arr[j],temp = temp,arr[j] # swap
-                debug(f"2 -> {arr[j]}")
-                debug(f"3 -> {temp}")
-    return arr        
-            
-n = int(input())
-A = list(map(int,input().split()))
+def find_max(arr):
+    max = arr[0]
+    for i in range(1,len(arr)):
+        if arr[i] > max:
+            max = arr[i]
+    return max     
+def find_min(arr):
+    min = arr[0]
+    for i in range(1,len(arr)):
+        if arr[i] < min:
+            min = arr[i]
+    return min            
 
-print(A)
-print(sort(A))
+if __name__ == "__main__":            
+    n = int(input())
+    A = list(map(int,input().split()))
+    i = 0
+    while(len(A)>1):
+        i += 1
+        if i%2 != 0:
+            A.remove(find_max(A))
+        else:
+            A.remove(find_min(A)) 
+    for i in A:          
+        print(i)
+
