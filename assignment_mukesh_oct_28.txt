@@ -1,0 +1,176 @@
+
+# 1: Given an array of N integers. Your task is to print the sum of all of the integers
+import os
+
+if __name__ == "__main__":
+    n = int(input())
+    a = list(map(int,raw_input().split()))
+    sum = 0
+    for i in a:
+        sum = sum+i
+    print(sum)
+
+
+
+"""
+ Q2. Given an array A[] of N integers and an index Key. Your task is to print the element present at
+index key in the array.
+"""
+import os
+
+if __name__ == "__main__":
+
+    a = list(map(int,raw_input().split()))
+    b = list(map(int,raw_input().split()))
+    n = a[0]
+    index=a[1]
+    print(b[index])
+"""
+Q3. Given an sorted array A of size N. Find number of elements which are less than or equal to given
+element X.
+"""
+n = int(input())
+a = list(map(int,raw_input().split()))
+x = int(input())
+
+count = 0
+for i in a:
+    if i <= x:
+        count+=1
+print(count) 
+
+
+
+
+"""
+Q4. You are given an array A of size N. You need to print elements of A in alternate order (starting
+from index 0).
+"""
+n = int(input())
+a = list(map(int,input().split()))
+
+for i in range(0,n):
+    if i %2 == 0:
+        print(a[i],end=' ') 
+"""
+Q5. Given an array Arr of N positive integers. Your task is to find the elements whose value is equal
+to that of its index value ( Consider 1-based indexing ).
+"""
+
+n = int(input())
+arr = list(map(int,input().split()))
+
+for i in range(0,n):
+    if i+1 == arr[i]:
+        print(arr[i])
+"""
+Q6. Given an array of size N and you have to tell whether the array is perfect or not. An array is said
+to be perfect if it's reverse array matches the original array. If the array is perfect then print
+"PERFECT" else print "NOT PERFECT".
+"""
+import sys 
+
+arr = list(map(int,input().split()))
+first,last = 0,len(arr)-1 
+
+while first<last: 
+    if arr[first] == arr[last]:
+        first+=1
+        last-=1
+    else:
+        print("NOT PERFECT")
+        sys.exit(-1)
+print("PERFECT")
+
+"""
+Q7. Given an array of length N, at each step it is reduced by 1 element. In the first step the maximum
+element would be removed, while in the second step minimum element of the remaining array would
+be removed, in the third step again the maximum and so on. Continue this till the array contains only 1
+element. And find the final element remaining in the array.
+"""
+def find_max(arr):
+    max = arr[0]
+    for i in range(1,len(arr)):
+        if arr[i] > max:
+            max = arr[i]
+    return max     
+def find_min(arr):
+    min = arr[0]
+    for i in range(1,len(arr)):
+        if arr[i] < min:
+            min = arr[i]
+    return min            
+
+if __name__ == "__main__":            
+    n = int(input())
+    A = list(map(int,input().split()))
+    i = 0
+    while(len(A)>1):
+        i += 1
+        if i%2 != 0:
+            A.remove(find_max(A))
+        else:
+            A.remove(find_min(A)) 
+    for i in A:          
+        print(i)
+
+
+"""Q8. Given an array of N distinct elements, the task is to find all elements in array except two greatest
+elements in sorted order."""
+
+def sort(arr):
+    for i in range(0,len(arr)):
+        mini = arr[i]
+        for j in range(i+1,len(arr)):
+            if arr[j] < mini:
+                mini = arr[j]
+                arr[i],arr[j] = arr[j],arr[i]
+    return arr
+
+
+if __name__ == "__main__":
+    arr = list(map(int,input().split()))
+
+    for i in range(len(sort(arr))-2):
+        print(arr[i])              
+
+"""Q9. Write a program to find the sum of the given series 1+2+3+ . . . . . .(N terms)"""
+
+n = int(input())
+
+# Approach 1
+sum = n*(n+1)/2;  # direct formula
+print(int(sum))
+
+# Approach 2
+sum = 0
+for i in range(n+1):
+    sum = sum+i
+print(sum)    
+
+"""Q10. Given a number N. Your task is to check whether it is fascinating or not.
+Fascinating Number: When a number(should contain 3 digits or more) is multiplied by 2 and 3 ,and
+when both these products are concatenated with the original number, then it results in all digits from 1
+to 9 present exactly once."""
+
+# Approach 1
+def facinating(n):
+    if n > 99:
+        p1 = n * 2
+        p2 = n * 3
+        num = f"{n}"+f"{p1}"+f"{p2}"
+        a = []
+        for i in num:
+            a.append(i)
+        for i in range (1,9):
+            if str(i) not in a:
+               print("NotFascinating")
+               return 
+        print("Fascinating")    
+                
+# Approach 2 
+
+
+if __name__ == "__main__":
+    n = int(input())
+    facinating(n)
