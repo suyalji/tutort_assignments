@@ -3,6 +3,7 @@ Fascinating Number: When a number(should contain 3 digits or more) is multiplied
 when both these products are concatenated with the original number, then it results in all digits from 1
 to 9 present exactly once."""
 
+# Approach 1
 def facinating(n):
     if n > 99:
         p1 = n * 2
@@ -17,7 +18,9 @@ def facinating(n):
                return 
         print("Fascinating")    
                 
+# Approach 2 
 
 
-n = int(input())
-facinating(n)
+if __name__ == "__main__":
+    n = int(input())
+    facinating(n)
