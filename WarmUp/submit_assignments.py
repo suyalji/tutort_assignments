@@ -1,4 +1,4 @@
-REPO_PATH = "/Users/c58365a/Desktop/tutort/tutort_assignments/WarmUp/"
+RE0PO_PATH = "/Users/c58365a/Desktop/tutort/tutort_assignments/WarmUp/"
 data = []
 with open ('assignment_mukesh_oct_28.txt','a') as fp:
     for i in range(10):
