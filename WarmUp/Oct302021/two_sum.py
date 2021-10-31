@@ -18,7 +18,7 @@ def solution_2(arr,target):
     n = len(arr)
     for i in range(n):
         value = target - arr[i]
-        if value in arr:
+        if value in arr:  # what is the order here 
             return i,arr.index(value)
 
 # Driver code 
