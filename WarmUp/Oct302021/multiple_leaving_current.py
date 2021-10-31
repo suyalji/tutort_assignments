@@ -36,6 +36,12 @@ def solution_2(arr):
     return b
 
 # Approach 3
+"""
+1.  Make two arrays left[] and right[]
+2.  Find product of all elements of the left in left array , first element being 1
+3.  Find product of all elements of the right in right array , last element being 1 
+4.  Multiple corresponding elemnts of left and right  
+"""
 def solution_3(arr):
     n = len(arr)
     left , right = [1]*n,[1]*n 
@@ -44,13 +50,10 @@ def solution_3(arr):
 
     for i in range(1,n):
         left[i] = left[i-1]*arr[i-1]
-
-    for i in range(n-2,0):
+ 
+    for i in range(n-2,-1,-1):
         right[i] = right[i+1]*arr[i+1]
 
-    print(f"left : {left}")
-    print(f"right : {right}")
-    
     for i in range(n):
         arr[i] = left[i] * right[i]
     
@@ -60,13 +63,13 @@ def solution_3(arr):
 
 # Driver code
 if __name__ == "__main__":
-    arr = [1,2,3,4,5,6,4]
+    arr = [1,2,3,4,5]
     product = solution_1(arr)
     print(f"Solution_1 : {product}")
-    arr = [1,2,3,4,5,6,4]
+    arr = [1,2,3,4,5]
     product = solution_2(arr)
     print(f"Solution_2 : {product}")
-    arr = [1,2,3,4,5,6,4]
+    arr = [1,2,3,4,5]
     product = solution_3(arr)
     print(f"Solution_3 : {product}")
 
