@@ -1,5 +1,6 @@
 """
-In a string , find frequency of all characters 
+Part 1 : In a string , find frequency of all characters 
+Part 2 : Print alphabet with higest frquency 
 """
 # Approach 1
 def list_occurances(input):
@@ -20,9 +21,6 @@ def list_occurances(input):
             alphabet = key
     return (my_dict,alphabet)
 
-"""
-print alphabet with higest frquency 
-"""
 if __name__ == "__main__":
     string_list = ["aaabbbc","hgghghhhhhghghghjghghghjghgghhjyutut7etuitruegue8tyeiughjhgjdhgjkd",""]
     for pick_str in string_list:
