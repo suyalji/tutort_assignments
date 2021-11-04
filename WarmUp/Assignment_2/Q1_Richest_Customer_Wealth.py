@@ -8,6 +8,10 @@ def solution_1(arr):
         maxi.append(sum(i))
     return max(maxi)
 
+def solution_2(arr):
+    
+    return 1     
+
 if __name__ == "__main__":
     arr = [[2,8,7],[7,1,3],[1,9,5]]
     print(solution_1(arr))
