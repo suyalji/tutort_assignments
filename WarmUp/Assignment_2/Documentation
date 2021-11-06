@@ -1,4 +1,4 @@
-Question 1: Accepted in Leet code 
+Question 1: Accepted in Leet code "Richest Customer Wealth"
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
@@ -7,7 +7,7 @@ class Solution:
             maxi.append(sum(i))
         return max(maxi)    
 
-Question 2:
+Question 2: "Running sum 1-D array"
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         moving = 0
@@ -16,7 +16,7 @@ class Solution:
             moving = nums[i]
         return nums    
 
-question 3 :
+Question 3 :"Jewels and Stones"
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         stone_counts = {}
@@ -31,3 +31,74 @@ class Solution:
             if i in stone_counts.keys():
                 sum = sum + stone_counts[i]
         return sum
+
+Question 4 : "minimum absolute difference"
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        out,n = [],len(arr)
+        arr = sorted(arr)
+        my_dict = {}
+        mini = sys.maxsize
+        my_list = []
+        for i in range(n-1):
+            diff = abs(arr[i]-arr[i+1])
+            if diff < mini:
+                mini = diff
+                my_list = []
+                my_list.append([arr[i],arr[i+1]])
+            elif diff == mini:
+                my_list.append([arr[i],arr[i+1]])    
+        return my_list
+
+Question 5 :  "Three Consequitive Odds"       
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        n = len(arr)
+        for i in range(n-2):
+            if arr[i]%2 != 0 and arr[i+1]%2 != 0 and arr[i+2]%2 != 0 :
+                return True 
+        return False
+
+Question 6 : "Transpose Matrix "
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        
+       n =len(matrix)
+       m= len(matrix[0])
+       x = [] 
+   
+       for i in range(m):
+           y = []
+           for j in range(n):
+               y.append(matrix[j][i])
+           x.append(y)    
+       return x
+
+Question 7 : "Majority Element "     
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        n = len(nums)
+        my_dict = {}
+        for i in nums:
+            if i in my_dict.keys():
+                 my_dict[i] = my_dict[i] + 1
+            else:
+                my_dict[i] = 1
+        for key,value in my_dict.items():
+            if value > int(n/2):
+                 return key        
+        return None
+
+Question 8: "!!!! Error in Question Link "   
+
+Question 9 : "Move zeroes"
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        for i in nums:
+            if i == 0:
+                nums.remove(i)
+                nums.append(0)
+
+
+
+
