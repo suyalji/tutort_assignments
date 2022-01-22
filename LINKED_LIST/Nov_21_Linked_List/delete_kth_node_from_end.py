@@ -27,21 +27,16 @@ class linkedlist:
         print("\n")    
 
     def delete_kth(self,k):  ## yet to complete
-        if self.head is None:
+        if self.head == None:
+            print("Nothing to delete .. ") 
             return
         count = 1
-        if k == 1:
-            self.head = self.head.next
-            return self.head
-        temp = self.head    
-        while temp:
-            count += 1
-            if k - count == 1:
-                d = temp.next
-                temp.next = temp.next.next
-                return
-            temp = temp.next    
-        pass    
+        temp = self.head
+        while temp.next:
+            if k - count != 1:
+                temp = temp.next
+                count += 1 
+        temp.next = temp.next.next        
 
     def delete_kth_from_end(self,k):
         pass 

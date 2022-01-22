@@ -63,7 +63,7 @@ class CircularLinkedList:
 					return self.last
 			p = p.next
 			if (p == self.last.next):
-				print(item, "not present in the list")
+				print(item, " not present in the list")
 				break
 
 	def traverse(self):
@@ -77,6 +77,7 @@ class CircularLinkedList:
 			temp = temp.next
 			if temp == self.last.next:
 				break
+
     def detect_cycle(self):
         if self.last is None:
             return 
@@ -85,6 +86,7 @@ class CircularLinkedList:
         while fast != slow and fast.next:
             slow = slow.next
             fast = fast.next.next    
+        return True    
 
 
 
